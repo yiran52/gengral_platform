@@ -1,0 +1,42 @@
+.bg_control {
+  width: 100%;
+  height: 100vh;
+  background-image: url('../src/assets/bg_img.jpeg'); // 更改为您的背景图片文件名
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.blog-page {
+  height: 100vh;
+  .Col_style {
+    width: 1300px;
+    margin-top: 300px;
+    display: flex;
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+.button-area {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  :global {
+    .ant-btn {
+      margin-bottom: 10px; // 设置垂直间距
+      background-color:rgb(138, 235, 246); // 设置背景颜色
+
+      &:hover,
+      &:focus {
+        background-color:rgb(73, 224, 241); // 如果需要，你也可以设置鼠标悬停或者聚焦时的背景颜色
+      }
+    }
+
+    .ant-btn:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

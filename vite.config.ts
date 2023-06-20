@@ -19,17 +19,16 @@ export default defineConfig({
   server: {
     host: true,
     port: 3003,
-    // cors: true, //默认启用并允许任何源
+    cors: true, //默认启用并允许任何源
     https: false,
     open: true, //在服务器启动时自动在浏览器中打开应用程序
     // 反向代理配置，注意rewrite写法
     // 设置反向代理
     proxy: {
-      // 以下示例表示：请求URL中含有"/api"，则反向代理到http://localhost
-      // 例如: http://localhost:3000/api/login -> http://localhost/api/login
       '/api': {
-        target: 'http://localhost/',
-        changeOrigin: true
+        target: 'http://localhost:3005/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
       }
     }
   },

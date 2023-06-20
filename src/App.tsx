@@ -1,7 +1,15 @@
-import { Button } from 'antd'
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import routes from './route'
 const App = () => {
-  return <Button type="primary">Vite-React-App</Button>
+  return (
+    <Router>
+      <Routes>
+        {routes.map((route, i) => (
+          <Route key={i} path={route.path} element={route.element} />
+        ))}
+      </Routes>
+    </Router>
+  )
 }
 
 export default App
