@@ -1,7 +1,6 @@
 .bg_control {
   width: 100%;
   height: 100vh;
-  background-image: url('../src/assets/bg_img.jpeg'); // 更改为您的背景图片文件名
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -27,7 +26,7 @@
   :global {
     .ant-btn {
       margin-bottom: 10px; // 设置垂直间距
-      background-color:rgb(138, 235, 246); // 设置背景颜色
+      background-color:rgb(72, 74, 74); // 设置背景颜色
 
       &:hover,
       &:focus {
