@@ -5,6 +5,8 @@ import styles from './index.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { _fetchBlogs } from '../../api/generalApi'
 import BlogPostForm from '../../components/BlogPostForm'
+import bgImage from '../../assets/bg_img.jpeg'
+
 import {
   PlusOutlined,
   EditOutlined,
@@ -73,7 +75,10 @@ const Blogs: React.FC = () => {
   }, [pageNo, pageSize, createContent])
 
   return (
-    <div className={styles['bg_control']}>
+    <div
+      className={styles['bg_control']}
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
       <Row className={styles['blog-page']}>
         <Col span={3}></Col>
         {createContent ? (

@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Form, Input, Button, message, Row, Col } from 'antd'
+import { Form, Input, Button, message } from 'antd'
 import { _createBlog } from '../../api/generalApi'
 import ReactMarkdown from 'react-markdown'
 import gifCat from '../../assets/gif_cat.gif'
 import svgIcon from '../../assets/hover.svg'
+import styles from './index.module.scss'
 interface Props {
   setVisible: (value: boolean) => void
 }
@@ -12,7 +13,7 @@ const BlogPostForm: React.FC<Props> = ({ setVisible }) => {
   const [markdownContent, setMarkdownContent] = useState('')
 
   const onFinish = (values: any) => {
-    _createBlog(values).then((res) => {
+    _createBlog(values).then(() => {
       setVisible(false)
       message.success('创建成功！')
     })
@@ -23,22 +24,7 @@ const BlogPostForm: React.FC<Props> = ({ setVisible }) => {
     message.success('已取消！')
   }
   return (
-    <Form
-      form={form}
-      onFinish={onFinish}
-      style={{
-        position: 'absolute',
-        left: 500,
-        width: 800,
-        border: '1px solid grey',
-        padding: 50,
-        borderRadius: 10,
-        marginTop: 30,
-        background: 'linear-gradient(to right bottom, white, grey)',
-        opacity: 0.8,
-        height: 900
-      }}
-    >
+    <Form form={form} onFinish={onFinish} className={styles.form}>
       <Form.Item
         name="title"
         rules={[{ required: true, message: 'Please input your title!' }]}
@@ -67,16 +53,8 @@ const BlogPostForm: React.FC<Props> = ({ setVisible }) => {
         />
       </Form.Item>
 
-      <div
-        style={{
-          height: 240,
-          overflow: 'scroll',
-          border: '1px solid grey',
-          padding: 5,
-          borderRadius: 5
-        }}
-      >
-        预览：
+      <div className={styles.previewContainer}>
+        Content Preview:
         <ReactMarkdown>{markdownContent}</ReactMarkdown>
       </div>
       <Form.Item style={{ position: 'absolute', right: 20, marginTop: 15 }}>
@@ -87,28 +65,8 @@ const BlogPostForm: React.FC<Props> = ({ setVisible }) => {
           Cancel
         </Button>
       </Form.Item>
-      <img
-        src={gifCat}
-        alt="gif"
-        style={{
-          borderRadius: 200,
-          position: 'absolute',
-          left: 30,
-          top: 780,
-          width: 100,
-          height: 100
-        }}
-      />
-      <img
-        src={svgIcon}
-        alt="gif"
-        style={{
-          borderRadius: 200,
-          position: 'absolute',
-          right: 10,
-          top: 2
-        }}
-      />
+      <img src={gifCat} alt="gif" className={styles.gifImage} />
+      <img src={svgIcon} alt="gif" className={styles.svgIcon} />
     </Form>
   )
 }

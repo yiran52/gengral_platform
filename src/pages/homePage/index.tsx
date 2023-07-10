@@ -4,11 +4,16 @@ import { useNavigate } from 'react-router-dom'
 import styles from './index.module.scss'
 import gifCat from '../../assets/gif_cat.gif'
 import svgIcon from '../../assets/hover.svg'
+import bgImage from '../../assets/bg_img.jpeg'
+
 const HomePage: React.FC = () => {
   const navigate = useNavigate()
   return (
     <>
-      <div className={styles['bg_control']}>
+      <div
+        className={styles['bg_control']}
+        style={{ backgroundImage: `url(${bgImage})` }}
+      >
         <img
           src={gifCat}
           alt="gif"
