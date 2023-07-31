@@ -3,6 +3,8 @@
 import axios, { AxiosInstance } from 'axios'
 
 const instance: AxiosInstance = axios.create({
+  //生产环境的URL
+  // baseURL: 'http://10.8.166.0:3005/'
   baseURL: 'http://localhost:3005/'
 })
 
