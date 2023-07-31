@@ -26,6 +26,7 @@ export default defineConfig({
     // 设置反向代理
     proxy: {
       '/api': {
+        // target: '10.8.166.0:3005/',//生产环境url
         target: 'http://localhost:3005/',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')

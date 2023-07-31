@@ -20,7 +20,8 @@ yarn dev
 ```shell
 docker build -t general_bolg_20230614_0 -f Runner.Dockerfile .
 //arm64平台构建方式（在amd上运行）
-docker buildx build  --platform linux/amd64 -t yiranlater/general_bolg_20230614_0 -f Runner.Dockerfile .
+docker buildx build --load --platform linux/amd64 -t yiranlater/general_bolg_20230614_0 -f Runner.Dockerfile .
+
 ```
 
 ## 项目技术点
